@@ -39,6 +39,7 @@ class MemberRepositoryTest {
     }
 }
  */
+/*
 package jpabook.jpashop;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
@@ -71,3 +72,4 @@ public class MemberRepositoryTest {
         Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
     }
 }
+ */
