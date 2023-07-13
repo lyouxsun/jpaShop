@@ -1,0 +1,23 @@
+spring:
+
+# 아무 설정도 되어있지 않으면 default가 메모리모드로 실행되는 거임
+############################################################## 여기서부터
+  datasource:
+    url: jdbc:h2:mem:test
+#   외부 DB(H2)가 아닌 메모리DB (스프링부트에서 제공하는 일시적인 DB) 사용해서 테스트하기 : 테스트 폴더에 resources 디렉토리 생성하기
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop   # 스프링부트는 create가 아니라 create-drop으로 실행된다. (실행 되고 난 직후에 바로 초기화됨)
+    properties:
+      hibernate:
+#        show_sql: true #system.out을 통해 출력
+        format_sql: true
+############################################################## 여기까지 없어도 됨
+logging:
+  level:
+    org.hibernate.SQL: debug    #log를 통해 출력
+    org.hibernate.type: trace
