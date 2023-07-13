@@ -33,10 +33,9 @@ public class MemberServiceTest {
         Long savedId = memberService.join(member);
 
         //then
-        //Assert.assertEquals(savedId, member.getId());     //왜 이건 안될까,,
         em.flush(); //DB에 insert쿼리가 날라가지만, 트랜잭션은 롤백을 해서 DB에 저장되지는 않음
         assertEquals(member, memberService.findOne(savedId));
-        
+        //assertEquals(savedId, member.getId());     //얘도 같은 역할인듯
     }
     @Test(expected = IllegalStateException.class)
     public void 중복_회원_예외() throws Exception {
