@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import jpabook.jpashop.domain.Category;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter //변수를 수정해야 할 때, @Setter를 쓰는게 아니라 //같은 클래스 내에 addStock, subtract 처럼 핵심 비즈니스 메서드를 만들어서 그걸로 변경하는 것이 좋다!!!
+@Getter @Setter//변수를 수정해야 할 때, @Setter를 쓰는게 아니라 //같은 클래스 내에 addStock, subtract 처럼 핵심 비즈니스 메서드를 만들어서 그걸로 변경하는 것이 좋다!!!
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="dtype")
 public abstract class Item {

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class ItemRepository {
-    @PersistenceContext
+    //@PersistenceContext : @RequiredArgsConstructor가 있으면 안써도 된다.
     private final EntityManager em;
 
     /**
@@ -33,7 +33,7 @@ public class ItemRepository {
     }
 
     /**
-     * 상품 단건 조회
+     * 상품 전체 조회
      */
     public List<Item> findAll() {
         return em.createQuery("select i from Item i", Item.class)
