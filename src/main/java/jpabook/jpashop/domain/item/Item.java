@@ -22,7 +22,7 @@ public abstract class Item {
 
     private int price;  //item 한개당 가격
 
-    private int stockQuatity;   //남은 수량
+    private int stockQuantity;   //남은 수량
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
@@ -33,17 +33,17 @@ public abstract class Item {
      * stock 증가
      */
     public void addStock(int quantity){
-        this.stockQuatity+=quantity;
+        this.stockQuantity+=quantity;
     }
 
     /**
      * stock 감소 & 0보다 작아지는거 방지
      */
     public void subtractStock(int quantity){
-        int remainStock = this.stockQuatity-quantity;
+        int remainStock = this.stockQuantity-quantity;
         if(remainStock<0){
             throw new NotEnoughStockException("need more stock");
         }
-        this.stockQuatity=remainStock;
+        this.stockQuantity=remainStock;
     }
 }
